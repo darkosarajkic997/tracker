@@ -1,0 +1,8 @@
+Package               Version
+--------------------- --------
+imutils               0.5.4
+numpy                 1.22.3
+opencv-contrib-python 4.5.5.64
+opencv-python         4.5.5.64
+pip                   22.0.4
+setuptools            41.2.0
