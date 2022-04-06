@@ -46,12 +46,13 @@ points=[]
 frames=[]
 max_w=0
 max_h=0
+sleep_time=0.1
 while True:
 	# grab the current frame, then handle if we are using a
 	# VideoStream or VideoCapture object
     frame = vs.read()
     frame = frame[1] if args.get("video", False) else frame
-    time.sleep(0.1)
+    time.sleep(sleep_time)
 	# check to see if we have reached the end of the stream
     if frame is None:
         break
@@ -61,6 +62,7 @@ while True:
     (H, W) = frame.shape[:2]
     # check to see if we are currently tracking an object
     if initBB is not None:
+        sleep_time=0
 		# grab the new bounding box coordinates of the object
         (success, box) = tracker.update(frame)
 		# check to see if the tracking was a success
