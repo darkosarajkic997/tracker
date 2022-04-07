@@ -58,7 +58,6 @@ while True:
         break
 	# resize the frame (so we can process it faster) and grab the
 	# frame dimensions
-    frame = imutils.resize(frame, width=500)
     (H, W) = frame.shape[:2]
     # check to see if we are currently tracking an object
     if initBB is not None:
@@ -115,9 +114,9 @@ else:
 cv2.destroyAllWindows()
 
 if args.get("dir_name", False):
-    dir_name=args["dir_name"]
+    dir_name=f'crops\{args["dir_name"]}_{str(time.time())}'
 else:
-    dir_name="img_from_vid"+str(args["dir_name"])
+    dir_name=f'crops\img_from_vid_{str(args["dir_name"])}'
 
 if os.path.exists(dir_name):
     shutil.rmtree(dir_name)
